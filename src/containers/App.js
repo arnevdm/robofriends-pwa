@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { requestRobots, setSearchField } from "../actions";
 import CardList from "../components/CardList";
-import SearchBox from "../components/SearchBox";
-import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
+import Header from "../components/Header";
+import Scroll from "../components/Scroll";
+import SearchBox from "../components/SearchBox";
 import "./App.css";
 
-import { requestRobots, setSearchField } from "../actions";
-import Header from "../components/Header";
 
 const mapStateToProps = (state) => {
   return {
@@ -27,6 +27,7 @@ const mapDispatchToProps = (dispatch) => {
 
 class App extends Component {
   componentDidMount() {
+    console.log(process.env.NODE_ENV)
     this.props.onRequestRobots();
   }
 
